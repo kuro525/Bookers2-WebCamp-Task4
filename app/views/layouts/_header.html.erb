@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse bg-dark">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-        <%= link_to "Bookers", root_path, class:'nav-link text-light' %>
+      <span class="text-light">Bookers</span>
     </nav>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
@@ -9,13 +9,13 @@
         <!-- ユーザーがログインしていた時の処理 -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to "Home", user_path(current_user), class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
+            <%= link_to "Users", users_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Books</a>
+            <%= link_to "Books", books_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -26,10 +26,10 @@
         <!-- ユーザーがログインしていなかった時の処理 -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to "Home", root_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <%= link_to "About", home_about_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to "Sing up", new_user_registration_path, class: 'nav-link' %>
@@ -43,3 +43,9 @@
     </nav>
   </div>
 </header>
+
+
+
+
+</div>
+</div>

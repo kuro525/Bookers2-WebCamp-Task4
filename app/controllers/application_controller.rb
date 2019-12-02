@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # def after_sign_in_path_for(resource)
-  #   home_after_login_path
-  # end
+  def after_sign_in_path_for(resource)
+    # home_after_login_path
+    user_path(resource)
+  end
 
   protected
 
