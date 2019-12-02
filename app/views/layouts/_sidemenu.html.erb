@@ -1,0 +1,53 @@
+<div class='col-lg-3'>
+  <h2>User info</h2>
+  <% if user.nil? %>
+    <table class='table'>
+      <tr>
+        <%= attachment_image_tag current_user, :profile_image, size: "100x100", fallback: "no_image.png"%>
+      </tr>
+      <tr>
+        <th>name</th>
+        <th> <%= current_user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= current_user.introduction %></th>
+      </tr>
+    </table>
+
+    <div class='row'>
+      <%= link_to "Edit", edit_user_path(current_user.id), class: 'col-xs-12  btn' %>
+    </div>
+  <% else %>
+    <table class='table'>
+
+      <tr>
+        <%= attachment_image_tag user, :profile_image, size: "100x100", fallback: "no_image.png"%>
+      </tr>
+      <tr>
+        <th>name</th>
+        <th> <%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </table>
+
+    <div class='row'>
+      <%= link_to "Edit", edit_user_path(user.id), class: 'col-xs-12  btn' %>
+    </div>
+  <% end %>
+
+  <h2>New book</h2>
+  <%= form_for book do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+
+    <h4>Body</h4>
+    <%= f.text_area :body %><br>
+    <%= f.submit 'Create Book', class: 'btn btn-primary' %>
+
+  <% end %>
+
+</div>
